@@ -1,10 +1,25 @@
 <script>
 	import { spring } from 'svelte/motion';
 
-	let count = 0;
+	let count[] = ;
 
 	const displayed_count = spring();
-	$: displayed_count.set(count);
+	$: displayed_count.set(
+  
+
+<div class="image-container">
+    <img src="shahd-1.gif" alt="Animation">
+    <br>
+    <img src="img.jpg" alt="Animation">
+    <!--    <br>-->
+</div>
+<div class="image-container2">
+    <img src="image.jpg" alt="Image">
+    <br>
+    <img src="21st-birthday-9.gif" alt="Animation">
+
+</div>
+);
 	$: offset = modulo($displayed_count, 1);
 
 	/**
@@ -103,4 +118,36 @@
 		top: -100%;
 		user-select: none;
 	}
+
+	
+	img {
+            width: 300px;
+            height: auto;
+        }
+
+        /* Add CSS styles for image layout */
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+
+        .image-container2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .image-container2 img {
+            max-width: 100%;
+            height: auto;
+        }
 </style>

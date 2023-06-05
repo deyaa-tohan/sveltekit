@@ -6,7 +6,7 @@
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name="description" content="Svelte demo app" charset="UTF-8" />
 </svelte:head>
 
 <section>
@@ -17,12 +17,14 @@
 				<img src={welcome_fallback} alt="Welcome" />
 			</picture>
 		</span>
-
-		to your new<br />SvelteKit app
+		  شهدي العسل وسمائي الجميلة وبحري الذي أبحر ولا اغرق فيه
+		<br>
+		Happy Birthday my life love, I wish all the best and happy always with you,
+		and I hope you a great day, that is Happy Birthday in my way !
 	</h1>
 
 	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
+		try editing <strong>شهدي العسل</strong>
 	</h2>
 
 	<Counter />
@@ -38,9 +40,14 @@
 	}
 
 	h1 {
-		width: 100%;
-	}
+            color: #efab0b;
+            text-align: center;
+        }
 
+        h2 {
+            color: #67a1c1;
+            text-align: center;
+        }
 	.welcome {
 		display: block;
 		position: relative;
@@ -56,4 +63,11 @@
 		top: 0;
 		display: block;
 	}
+
+	footer {
+            background-color: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            font-size: large;
+        }
 </style>
