@@ -25,7 +25,7 @@
 	</main>
 
 	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+		Shahdy the honey, my beautiful sky, my sea in which I sail and do not drown.
 	</footer>
 </div>
 
