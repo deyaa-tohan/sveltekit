@@ -1,30 +1,30 @@
 <script>
 	import { spring } from 'svelte/motion';
 
-	// let count[] = ;
+	let count = 0;
 
-	// const displayed_count = spring();
-	// $: displayed_count.set();
-	// $: offset = modulo($displayed_count, 1);
+	const displayed_count = spring();
+	$: displayed_count.set(count);
+	$: offset = modulo($displayed_count, 1);
 
-	// /**
-	//  * @param {number} n
-	//  * @param {number} m
-	//  */
-	// function modulo(n, m) {
-	// 	// handle negative numbers
-	// 	return ((n % m) + m) % m;
-	// }
+	/**
+	 * @param {number} n
+	 * @param {number} m
+	 */
+	function modulo(n, m) {
+		// handle negative numbers
+		return ((n % m) + m) % m;
+	};
 
 	var imageUrls = [
-        "static/img.jpg",
-        "static/shahd-1.gif",
-        "static/image.jpg",
-        "static/21st-birthday-9.gif"
+        "src\routes\img.jpg",
+        "src\routes\shahd-1.gif",
+        "src\routes\image.jpg",
+        "src\routes\21st-birthday-9.gif"
     ];
 
     // Get the button and image elements
-    var counterButton = document.getElementById('counter-button');
+    var counterButton = document.getElementById('counter button');
     var imageElement = document.getElementById('image');
 
     // Counter to keep track of the current image index
@@ -47,8 +47,8 @@
     });
 </script>
 
-<div class="image-container">
-	<button  id="counter-button" on:click={() => (counterButton)} aria-label="Decrease the counter by one">
+<div class="counter">
+	<button id="counter button" on:click={() => (count -= 1)} aria-label="Decrease the counter by one">
 		<svg aria-hidden="true" viewBox="0 0 1 1">
 			<path d="M0,0.5 L1,0.5" />
 		</svg>
@@ -56,12 +56,14 @@
 
 	<div class="counter-viewport">
 		<div class="counter-digits" style="transform: translate(0, {100 * offset}%)">
-			<strong class="hidden" aria-hidden="true">{<img id="image" src="" alt="Image">}</strong>
-			<!-- <strong>{Math.floor($displayed_count)}</strong> -->
+			<!-- <strong class="hidden" aria-hidden="true">{Math.floor($displayed_count + 1)}</strong> -->
+			<strong>
+				<img id="image" src="" alt="Image">
+			</strong>
 		</div>
 	</div>
 
-	<button  id="counter-button" on:click={() => (counterButton)} aria-label="Increase the counter by one">
+	<button id="counter button" on:click={() => (count += 1)} aria-label="Increase the counter by one">
 		<svg aria-hidden="true" viewBox="0 0 1 1">
 			<path d="M0,0.5 L1,0.5 M0.5,0 L0.5,1" />
 		</svg>
@@ -69,19 +71,13 @@
 </div>
 
 <style>
-
-	/* Add CSS styles for image layout */
-	.image-container {
+	.counter {
 		display: flex;
 		border-top: 1px solid rgba(0, 0, 0, 0.1);
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		margin: 1rem 0;
-		flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
 	}
-
-	.counter-button {
+	.counter button {
 		width: 2em;
 		padding: 0;
 		display: flex;
@@ -92,12 +88,8 @@
 		touch-action: manipulation;
 		font-size: 2rem;
 	}
-	.image-container img {
-            max-width: 100%;
-            height: auto;
-        }
 
-	.counter-button:hover {
+	.counter button:hover {
 		background-color: var(--color-bg-1);
 	}
 
@@ -130,6 +122,12 @@
 		font-size: 4rem;
 		align-items: center;
 		justify-content: center;
+	}
+
+	.counter-viewport strong img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
 	}
 
 	.counter-digits {
